@@ -50,7 +50,8 @@ const options = {
     const now = new Date();
     const difference = selectedDate - now;
 
-    startButton.removeAttribute('disabled');
+    startButton.setAttribute('disabled', 'true');
+    input.setAttribute('disabled', 'true');
 
     const timerInterval = setInterval(() => {
       const timeLeft = new Date(difference - (new Date() - now));
@@ -70,9 +71,14 @@ const options = {
         hoursElement.textContent = '00';
         minutesElement.textContent = '00';
         secondsElement.textContent = '00';
+
+        startButton.removeAttribute('disabled');
+        input.removeAttribute('disabled');
+
       }
     }, 1000);
   },
 };
 
+startButton.setAttribute('disabled', 'true');
 flatpickr('#datetime-picker', options);
