@@ -80,5 +80,8 @@ const options = {
   },
 };
 
-startButton.setAttribute('disabled', 'true');
-flatpickr('#datetime-picker', options);
+startButton.addEventListener('click', () => {
+  flatpickr('#datetime-picker', options);
+  startButton.setAttribute('disabled', 'true');
+  input.setAttribute('disabled', 'true');
+});
