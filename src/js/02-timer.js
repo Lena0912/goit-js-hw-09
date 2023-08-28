@@ -26,7 +26,6 @@ function convertMs(ms) {
 }
 
 const input = document.querySelector('#datetime-picker');
-
 const startButton = document.querySelector('[data-start]');
 const daysElement = document.querySelector('[data-days]');
 const hoursElement = document.querySelector('[data-hours]');
@@ -79,6 +78,10 @@ const options = {
     }, 1000);
   },
 };
+
+input.addEventListener('change', () => {
+  startButton.removeAttribute('disabled');
+});
 
 startButton.addEventListener('click', () => {
   flatpickr('#datetime-picker', options);
